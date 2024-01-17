@@ -1,4 +1,4 @@
-# hello-world
+# Simple router Vue.js
 
 ## Project setup
 ```

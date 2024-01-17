@@ -1,0 +1,94 @@
+@use '../abstracts/variables' as *;
+
+.header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 64px;
+    display: flex;
+    grid-gap: 15px;
+    background-color: lighten($officialColor, 5%);
+    z-index: $headerZindex;
+}
+
+.nav {
+    display: flex;
+    grid-gap: 15px;
+}
+
+.nav ul {
+    list-style-type: none;
+    display: flex;
+    grid-gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav .trigger {
+    display: block;
+}
+
+@media (max-width: 767.98px) {
+    .nav .navigation {
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        opacity: 0;
+        padding-block: 15px;
+        visibility: hidden;
+        transform: translateY(-15px);
+        transition: all 0.3s ease;
+        background-color: $officialColor;
+    }
+
+    .nav .navigation.isActive {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .nav .navigation ul { 
+        width: 100%;
+        max-width: 1200px;
+        padding-inline: 15px;
+        margin-inline: auto;
+    }
+}
+
+
+
+@media (min-width: 768px) {
+    .nav .trigger {
+        display: none;
+    }
+}
+
+.header a {
+    text-decoration: none;
+    color:  lighten($officialColor, 100%);
+    font-weight: 600;
+    padding: 10px 15px;
+    display: block;
+}
+
+.header .logo-brand {
+    margin-left: -15px;
+}
+
+.nav ul .link {
+    border-radius: #{$radisBase * 2};
+}
+
+.nav ul .link.router-link-active {
+    color: lighten($officialColor, 0%); 
+    background-color: lighten($officialColor, 100%);
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: space-between;    
+    align-items: center;
+}
